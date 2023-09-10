@@ -1,0 +1,16 @@
+name: 'Version File'
+description: 'Version File Generator for GitHub Actions'
+inputs:
+  version:
+    description: 'Version of Application'
+    required: true
+    default: '1.0.0'
+  special-build:
+    description: 'Special Build String'
+    required: false
+  file-output:
+    description: 'Path to Output File'
+    required: true
+runs:
+  using: 'node16'
+  main: 'index.js'

@@ -1,0 +1,17 @@
+{
+  "name": "version-file",
+  "version": "1.0.0",
+  "description": "Version File Generator for GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "moment": "^2.29.4",
+    "yaml": "^2.3.2"
+  }
+}
