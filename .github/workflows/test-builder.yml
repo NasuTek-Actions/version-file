@@ -1,0 +1,16 @@
+name: Test Version File Generator
+on: [push]
+jobs:
+  generate-version-yml:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Generate Version File
+        uses: NasuTek-Actions/version-file@dev
+        with:
+          version: 1.0.0
+          file-output: version.yml
+      - name: Upload GitHub Actions artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: version-yml-${{ github.run_number }}
+          path: version.yml
