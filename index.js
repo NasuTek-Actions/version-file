@@ -16,7 +16,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const moment = require('moment/moment');
-const fs = require('fs/promises');
+const fs = require('fs');
 
 const { stringify } = require('yaml');
 
@@ -32,7 +32,11 @@ try {
         build_time: moment().format(moment.ISO_8601)
     };
 
-    await fs.writeFile(core.getInput('file-output', stringify(output)));
+    fs.writeFile(core.getInput('file-output'), stringify(output), err => {
+        if (err) {
+            core.setFailed(err);
+        }
+    });
 } catch (error) {
     core.setFailed(error.message);
 }
