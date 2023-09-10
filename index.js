@@ -29,7 +29,7 @@ try {
         revision: moment().format('YYDDD'),
         special_build: specialBuild !== null && specialBuild !== '' ? specialBuild : '-b' + github.context.runNumber,
         git_revision: github.context.sha,
-        build_time: moment().format(moment.ISO_8601)
+        build_time: moment().format('YYYY-MM-DDTHH:mm:ss.SSSZ')
     };
 
     fs.writeFile(core.getInput('file-output'), stringify(output), err => {
